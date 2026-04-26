@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Auto create __init__.py watcher",
+      "type": "shell",
+      "command": "${workspaceFolder}\\api\\.venv\\Scripts\\python.exe",
+      "args": [
+        "${workspaceFolder}\\scripts\\auto_init_watcher.py",
+        "--root",
+        "${workspaceFolder}\\api"
+      ],
+      "isBackground": true,
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "reveal": "never",
+        "panel": "dedicated",
+        "showReuseMessage": false,
+        "clear": false
+      },
+      "problemMatcher": []
+    }
+  ]
+}
