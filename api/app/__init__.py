@@ -2,7 +2,7 @@
 Author: jinxudong 18751241086@163.com
 Date: 2026-04-26 16:53:53
 LastEditors: jinxudong 18751241086@163.com
-LastEditTime: 2026-04-26 18:00:31
+LastEditTime: 2026-04-26 19:07:30
 FilePath: /Mauns/api/app/__init__.py
 Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 '''
@@ -16,7 +16,7 @@ from app.infrastructure.logging import setup_logging
 from fastapi import FastAPI
 from app.interfaces.endpoints.route import router
 from fastapi.middleware.cors import CORSMiddleware
-
+from app.interfaces.errors.exception_handlers import register_exception_handlers
 
 #加载配置信息
 
@@ -87,6 +87,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+# 6.注册错误处理器
+register_exception_handlers(app)
 # 7.集成路由
 app.include_router(router, prefix="/api")
